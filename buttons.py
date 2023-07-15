@@ -13,11 +13,9 @@ def getButton():
     if up.is_pressed:
         rel(up)
         return 1
-    elif down.is_pressed:
+    if down.is_pressed:
         rel(down)
         return 2
-    elif select.is_pressed:
+    if select.is_pressed:
         rel(select)
         return 3
-    else:
-        return 4
