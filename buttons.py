@@ -12,10 +12,12 @@ select = Button(22)
 def getButton():
     if up.is_pressed:
         rel(up)
-        return "up"
-    if down.is_pressed:
+        return 1
+    elif down.is_pressed:
         rel(down)
-        return "down"
-    if select.is_pressed:
+        return 2
+    elif select.is_pressed:
         rel(select)
-        return "select"
+        return 3
+    else:
+        return 4
