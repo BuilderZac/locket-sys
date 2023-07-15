@@ -1,11 +1,17 @@
 from gpiozero import Button
 from time import sleep
 
-button = Button(2)
+up = Button(17)
+down = Button(27)
+select = Button(22)
 
 while True:
-    if button.is_pressed:
-        print("Pressed")
-    else:
-        print("Released")
-    sleep(1)
+    if up.is_pressed:
+        print("up")
+    if down.is_pressed:
+        print("down")
+    if select.is_pressed:
+        print("select")
+
+
+    sleep(0.05)
