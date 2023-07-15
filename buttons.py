@@ -15,7 +15,9 @@ def getButton():
         return 1
     if down.is_pressed:
         rel(down)
+        print("test down")
         return 2
     if select.is_pressed:
         rel(select)
+        print("test down")
         return 3
