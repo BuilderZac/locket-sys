@@ -3,7 +3,7 @@ from time import sleep
 
 def rel(pin):
     while pin.is_pressed:
-        sleep(0.05)
+        sleep(0.01)
 
 up = Button(17)
 down = Button(27)
