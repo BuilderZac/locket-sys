@@ -1,5 +1,5 @@
 import time
-from PIL import Image,ImageDraw,ImageFontimport 
+from PIL import Image,ImageDraw
 from waveshare_epd import epd2in13_V3
 
 try:
