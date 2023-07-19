@@ -5,9 +5,9 @@ def rel(pin):
     while pin.is_pressed:
         sleep(0.01)
 
-up = Button(17)
-down = Button(27)
-select = Button(22)
+up = Button(16)
+down = Button(20)
+select = Button(21)
 
 def getButton():
     if up.is_pressed:
