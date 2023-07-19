@@ -3,6 +3,9 @@ from PIL import Image,ImageDraw,ImageFontimport
 from waveshare_epd import epd2in13_V3
 
 try:
+    epd = epd2in13_V3.EPD()
+    epd.init()
+    epd.clear()
     time_image = Image.new('1', (epd.height, epd.width), 255)
     time_draw = ImageDraw.Draw(time_image)
     
@@ -18,7 +21,6 @@ try:
     
     epd.init()
     epd.Clear(0xFF)
-    
     epd.sleep()
 except:
     print("Error")
