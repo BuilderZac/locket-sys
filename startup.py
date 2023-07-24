@@ -23,6 +23,7 @@ while (True):
     if(num == 60):
         break
 
+epd.init()
 epd.Clear(255)
 epd.sleep()
 #except:
