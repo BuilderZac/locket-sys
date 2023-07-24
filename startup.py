@@ -9,7 +9,8 @@ epd.Clear(255)
 image = c.newImage()
 draw = ImageDraw.Draw(image)
 
-draw.text((5,5), 'Happy Testing', font=c.font24, fill=0, align='center')
+draw.text((5,5), 'Happy Testing', font=c.font24, fill=0, align='left')
+epd.display(epd.getbuffer(image))
 
 time.sleep(5)
 
