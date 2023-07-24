@@ -13,11 +13,11 @@ epd.displayPartBaseImage(epd.getbuffer(image))
 
 num = 0
 while (True):
-    draw.rectangle((120, 80, 220, 105), fill = 255)
+    #draw.rectangle((120, 80, 220, 105), fill = 255)
     draw.text((120, 80), time.strftime('%H:%M:%S'), font = c.font24, fill = 0)
     epd.displayPartial(epd.getbuffer(image))
     num = num + 1
-    if(num == 30):
+    if(num == 5):
         break
 
 epd.init()
