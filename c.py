@@ -16,5 +16,6 @@ def newImage():
     return image
 
 def refresh():
+    epd = epd2in13_V3.EPD()
     epd.init()
     epd.Clear(255)
