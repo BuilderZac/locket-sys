@@ -11,7 +11,7 @@ image = c.newImage()
 draw = ImageDraw.Draw(image)
 epd.displayPartBaseImage(epd.getbuffer(image))
 
-x = datetime.datetime(2022, 9, 15)
+x = datetime.datetime()
 draw.text((15, 40), "Mon Tue Wen Thu Fri Sat Sun", font = c.font18, fill = 0)
 draw.text((135, 5), x.strftime('%b/%d/%Y'), font = c.font24, fill = 0)
 
