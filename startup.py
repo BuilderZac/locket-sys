@@ -6,12 +6,11 @@ import c
 #try:
 epd = c.epd()
 epd.init()
-epd.Clear(255)
 image = c.newImage()
 draw = ImageDraw.Draw(image)
 epd.displayPartBaseImage(epd.getbuffer(image))
 
-x = datetime.datetime()
+x = datetime.date()
 draw.text((15, 40), "Mon Tue Wen Thu Fri Sat Sun", font = c.font18, fill = 0)
 draw.text((135, 5), x.strftime('%b/%d/%Y'), font = c.font24, fill = 0)
 
@@ -24,8 +23,7 @@ while (True):
     if(num == 60):
         break
 
-epd.init()
-epd.Clear(0xFF)
+epd.Clear(255)
 epd.sleep()
 #except:
 #    print("Error")
