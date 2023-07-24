@@ -13,12 +13,12 @@ epd.displayPartBaseImage(epd.getbuffer(image))
 
 x = datetime.datetime(2022, 9, 15)
 draw.text((15, 40), "Mon Tue Wen Thu Fri Sat Sun", font = c.font18, fill = 0)
-draw.text((15, 40), x.strftime('%b/%d/%Y'), font = c.font18, fill = 0)
+draw.text((135, 5), x.strftime('%b/%d/%Y'), font = c.font24, fill = 0)
 
 num = 0
 while (True):
-    draw.rectangle((75, 5, 175, 30), fill = 255)
-    draw.text((75, 5), time.strftime('%H:%M:%S'), font = c.font24, fill = 0)
+    draw.rectangle((35, 5, 135, 30), fill = 255)
+    draw.text((35, 5), time.strftime('%H:%M:%S'), font = c.font24, fill = 0)
     epd.displayPartial(epd.getbuffer(image))
     num = num + 1
     if(num == 60):
