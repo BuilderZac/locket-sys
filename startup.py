@@ -2,10 +2,10 @@ import time
 from PIL import Image,ImageDraw,ImageFont
 from waveshare_epd import epd2in13_V3
 import os
+import c
 
 try:
     epd = epd2in13_V3.EPD()
-    font24 = ImageFont.truetype(os.path.join(picdir, 'Font.ttc'), 24)
     epd.init()
     epd.clear()
     time_image = Image.new('1', (epd.height, epd.width), 255)
@@ -14,7 +14,7 @@ try:
     epd.displayPartBaseImage(epd.getbuffer(time_image))
     num = 0
     while (True):
-        time_draw.text((120, 80), time.strftime('%H:%M:%S'), font = font24, fill = 0)
+        time_draw.text((120, 80), time.strftime('%H:%M:%S'), font = c.font24, fill = 0)
         epd.displayPartial(epd.getbuffer(time_image))
         num = num + 1
         if(num == 30):
