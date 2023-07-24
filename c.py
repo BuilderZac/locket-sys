@@ -14,3 +14,7 @@ def epd():
 def newImage():
     image  = Image.new(mode='1', size=(250,122), color=255)
     return image
+
+def refresh():
+    epd.init()
+    epd.Clear(255)

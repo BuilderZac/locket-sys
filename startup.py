@@ -23,8 +23,7 @@ while (True):
     if(num == 60):
         break
 
-epd.init()
-epd.Clear(255)
+c.refresh()
 epd.sleep()
 #except:
 #    print("Error")
