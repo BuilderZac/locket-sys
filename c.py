@@ -11,5 +11,5 @@ def epd():
     return epd2in13_V3.EPD()
 
 def newImage():
-    image  = Image.new(mode=1, size=(250,122), color=255)
+    image  = Image.new(mode='1', size=(250,122), color=255)
     return image
