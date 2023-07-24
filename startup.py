@@ -5,7 +5,7 @@ import c
 #try:
 epd = c.epd()
 epd.init()
-epd.clear(255)
+epd.Clear(255)
 image = c.newImage()
 draw = ImageDraw.Draw(image)
 
