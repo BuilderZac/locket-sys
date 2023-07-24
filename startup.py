@@ -11,6 +11,8 @@ draw = ImageDraw.Draw(image)
 
 draw.text((5,5), 'Happy Testing', font=c.font24, fill=0, align='center')
 
+time.sleep(5)
+
 epd.init()
 epd.Clear(0xFF)
 epd.sleep()
