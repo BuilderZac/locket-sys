@@ -5,6 +5,7 @@ from waveshare_epd import epd2in13_V3
 
 pic = 'pic'
 font24 = ImageFont.truetype(os.path.join('pic', 'Font.ttc'), 24)
+font18 = ImageFont.truetype(os.path.join('pic', 'Font.ttc'), 18)
 epd = epd2in13_V3.EPD()
 
 def epd():

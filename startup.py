@@ -10,7 +10,7 @@ image = c.newImage()
 draw = ImageDraw.Draw(image)
 epd.displayPartBaseImage(epd.getbuffer(image))
 
-draw.text((35, 40), "Mon Tue Wen Thu Fri Sat Sun", font = c.font24, fill = 0)
+draw.text((25, 40), "Mon Tue Wen Thu Fri Sat Sun", font = c.font18, fill = 0)
 
 num = 0
 while (True):
