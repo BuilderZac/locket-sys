@@ -1,4 +1,5 @@
 import time
+import datetime
 from PIL import Image,ImageDraw,ImageFont
 import c
 
@@ -10,8 +11,9 @@ image = c.newImage()
 draw = ImageDraw.Draw(image)
 epd.displayPartBaseImage(epd.getbuffer(image))
 
+x = datetime.datetime(2022, 9, 15)
 draw.text((15, 40), "Mon Tue Wen Thu Fri Sat Sun", font = c.font18, fill = 0)
-draw.text((15, 40), time.localtime(1)+"/"+time.localtime(2)+"/"+time.localtime(0), font = c.font18, fill = 0)
+draw.text((15, 40), x.strftime('%b/%d/%Y'), font = c.font18, fill = 0)
 
 num = 0
 while (True):
