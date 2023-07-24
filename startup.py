@@ -3,7 +3,7 @@ from PIL import Image,ImageDraw,ImageFont
 import c
 
 #try:
-epd = c.epd
+epd = c.epd()
 epd.init()
 epd.clear(255)
 image = c.newImage()
