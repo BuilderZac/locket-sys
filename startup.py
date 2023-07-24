@@ -9,10 +9,15 @@ epd.Clear(255)
 image = c.newImage()
 draw = ImageDraw.Draw(image)
 
-draw.text((5,5), 'Happy Testing', font=c.font24, fill=0, align='left')
-epd.display(epd.getbuffer(image))
+epd.displayPartBaseImage(epd.getbuffer(image))
 
-time.sleep(5)
+num = 0
+while (True):
+    draw.text((5, 5), time.strftime('%H:%M:%S'), font=c.font24, fill=0, align='center')
+    epd.displayPartial(epd.getbuffer(image))
+    num = num + 1
+    if(num == 30):
+        break
 
 epd.init()
 epd.Clear(0xFF)
