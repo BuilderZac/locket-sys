@@ -10,7 +10,7 @@ draw = ImageDraw.Draw(image)
 
 def date():
     x = datetime.date.today()
-    draw.text((114, 5), x.strftime('%b/%d/%Y'), font = c.font24, fill = 0)
+    draw.text((111, 5), x.strftime('%b/%d/%Y'), font = c.font24, fill = 0)
     day = time.localtime()[6]
     days = ["Mon", "Tue", "Wen", "Thu", "Fri", "Sat", "Sun"]
     dayString = ""
@@ -20,7 +20,7 @@ def date():
         else:
             days[i] = days[i] + " "
         dayString = dayString + days[i]
-    draw.text((3, 40), dayString, font = c.font16, fill = 0)
+    draw.text((8, 40), dayString, font = c.font16, fill = 0)
 
 def homePrint():
     epd.displayPartBaseImage(epd.getbuffer(image))
