@@ -16,7 +16,7 @@ def date():
     for i in range(7):
         if i == day:
             days[i] = ">" + days[i] + "<"
-        draw.text((5 + (i * 31), 40), days[i], font = c.font18, fill = 0)
+        draw.text((5 + (i * 40), 40), days[i], font = c.font18, fill = 0)
 
 def homePrint():
     epd.displayPartBaseImage(epd.getbuffer(image))

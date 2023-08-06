@@ -1,4 +1,5 @@
 #c is short for common
+#also if you run c.py it refreshes the screen
 from PIL import Image,ImageDraw,ImageFont
 import os
 from waveshare_epd import epd2in13_V3
@@ -44,3 +45,6 @@ def getButton():
         return 3
     else:
         return 4
+
+#code to make it refresh
+refresh()
