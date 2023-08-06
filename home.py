@@ -31,7 +31,9 @@ def homePrint():
     date()
     pool = ThreadPool(processes=1)
     async_result = pool.apply_async(c.detectPress)
-    while async_result.get() != False:
+    loop = True
+    while loop != False:
+        loop = async_result.get()
         draw.rectangle((8, 5, 108, 30), fill = 255)
         draw.text((8, 5), time.strftime('%H:%M:%S'), font = c.font24, fill = 0)
         epd.displayPartial(epd.getbuffer(image))
