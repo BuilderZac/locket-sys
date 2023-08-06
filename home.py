@@ -20,7 +20,7 @@ def date():
         else:
             days[i] = days[i] + " "
         dayString = dayString + days[i]
-    draw.text((8, 40), dayString, font = c.font16, fill = 0)
+    draw.text((10, 40), dayString, font = c.font16, fill = 0)
 
 def homePrint():
     epd.displayPartBaseImage(epd.getbuffer(image))
@@ -39,6 +39,7 @@ def homePrint():
             date()
             print("this triggers")
 
+        print(c.Button())
         #if c.Button() == 3:
             #raise NotImplementedError
         
