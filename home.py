@@ -39,7 +39,6 @@ def homePrint():
             date()
             print("this triggers")
 
-        print(c.Button())
-        #if c.Button() == 3:
-            #raise NotImplementedError
+        if c.getButton() == 3:
+            raise NotImplementedError
         
