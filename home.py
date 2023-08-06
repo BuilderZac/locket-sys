@@ -13,10 +13,14 @@ def date():
     draw.text((114, 5), x.strftime('%b/%d/%Y'), font = c.font24, fill = 0)
     day = time.localtime()[6]
     days = ["Mon", "Tue", "Wen", "Thu", "Fri", "Sat", "Sun"]
+    dayString = ""
     for i in range(7):
         if i == day:
-            days[i] = ">" + days[i] + "<"
-        draw.text((5 + (i * 35), 40), days[i], font = c.font18, fill = 0)
+            days[i] = ">" + days[i] + "< "
+        else:
+            days[i] = days[i] + " "
+        dayString = dayString + days[i]
+    draw.text((5, 40), dayString, font = c.font18, fill = 0)
 
 def homePrint():
     epd.displayPartBaseImage(epd.getbuffer(image))
