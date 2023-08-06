@@ -37,6 +37,8 @@ def homePrint():
 
         if currentDay != time.localtime()[7]:
             c.refresh()
+            time.sleep(1)
             date()
             print("this triggers")
+            currentDay = time.localtime()[7]
         
