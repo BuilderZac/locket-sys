@@ -20,7 +20,7 @@ def date():
         else:
             days[i] = days[i] + " "
         dayString = dayString + days[i]
-    draw.text((5, 40), dayString, font = c.font18, fill = 0)
+    draw.text((3, 40), dayString, font = c.font16, fill = 0)
 
 def homePrint():
     epd.displayPartBaseImage(epd.getbuffer(image))
@@ -30,8 +30,8 @@ def homePrint():
     date()
 
     while (True):
-        draw.rectangle((12, 5, 112, 30), fill = 255)
-        draw.text((12, 5), time.strftime('%H:%M:%S'), font = c.font24, fill = 0)
+        draw.rectangle((8, 5, 108, 30), fill = 255)
+        draw.text((8, 5), time.strftime('%H:%M:%S'), font = c.font24, fill = 0)
         epd.displayPartial(epd.getbuffer(image))
 
         if currentDay != time.localtime()[7]:

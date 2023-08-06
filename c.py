@@ -10,6 +10,7 @@ from time import sleep
 pic = 'pic'
 font24 = ImageFont.truetype(os.path.join('pic', 'Font.ttc'), 24)
 font18 = ImageFont.truetype(os.path.join('pic', 'Font.ttc'), 18)
+font16 = ImageFont.truetype(os.path.join('pic', 'Font.ttc'), 16)
 epd = epd2in13_V3.EPD()
 
 def epd():
