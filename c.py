@@ -59,7 +59,7 @@ def detectPress():
                 raise NotImplementedError
             sleep(0.025)
     except NotImplementedError:
-        raise NotImplementedError
+        print("should work")
 
 def threadDetect():
     Thread(target = detectPress).start()

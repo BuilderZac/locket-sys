@@ -28,18 +28,15 @@ def homePrint():
     currentDay = time.localtime()[7]
 
     date()
-    try:
-        c.threadDetect()
-        while (True):
-            
-            draw.rectangle((8, 5, 108, 30), fill = 255)
-            draw.text((8, 5), time.strftime('%H:%M:%S'), font = c.font24, fill = 0)
-            epd.displayPartial(epd.getbuffer(image))
+    c.threadDetect()
+    while (True):
+        
+        draw.rectangle((8, 5, 108, 30), fill = 255)
+        draw.text((8, 5), time.strftime('%H:%M:%S'), font = c.font24, fill = 0)
+        epd.displayPartial(epd.getbuffer(image))
 
-            if currentDay != time.localtime()[7]:
-                c.refresh()
-                date()
-                print("this triggers")
-    except NotImplementedError:
-        raise NotImplementedError
+        if currentDay != time.localtime()[7]:
+            c.refresh()
+            date()
+            print("this triggers")
         
