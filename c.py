@@ -57,6 +57,7 @@ def detectPress():
                 raise NotImplementedError
             if select.is_pressed:
                 raise NotImplementedError
+            sleep(0.025)
     except NotImplementedError:
         print("Should Open Apps")
 
