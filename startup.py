@@ -6,10 +6,9 @@ while True:
         home.homePrint()
 
     except NotImplementedError:
-        print("dettected button closing home")
         c.refresh()
+        appsList.appList()
         break
-        #appsList.list()
 
     except KeyboardInterrupt:
         c.refresh()

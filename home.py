@@ -2,6 +2,7 @@ import time
 import datetime
 from PIL import Image,ImageDraw,ImageFont
 import c
+from multiprocessing.pool import ThreadPool
 
 epd = c.epd()
 epd.init()
@@ -28,9 +29,9 @@ def homePrint():
     currentDay = time.localtime()[7]
 
     date()
-    c.threadDetect()
-    while (True):
-        
+    pool = ThreadPool(processes=1)
+    async_result = pool.apply_async(c.detectPress)
+    while async_result.get() != False:
         draw.rectangle((8, 5, 108, 30), fill = 255)
         draw.text((8, 5), time.strftime('%H:%M:%S'), font = c.font24, fill = 0)
         epd.displayPartial(epd.getbuffer(image))
@@ -41,4 +42,5 @@ def homePrint():
             date()
             print("this triggers")
             currentDay = time.localtime()[7]
+    pool.terminate()
         

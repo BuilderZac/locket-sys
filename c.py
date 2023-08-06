@@ -49,17 +49,17 @@ def getButton():
         return 4
     
 def detectPress():
-    try:
-        while True:
-            if up.is_pressed:
-                raise NotImplementedError
-            if down.is_pressed:
-                raise NotImplementedError
-            if select.is_pressed:
-                raise NotImplementedError
-            sleep(0.025)
-    except NotImplementedError:
-        print("should work")
+    trigger = True
+    while trigger == True:
+        if up.is_pressed:
+            trigger = False
+        if down.is_pressed:
+            trigger = False
+        if select.is_pressed:
+            trigger = False
+        sleep(0.025)
+    print("should work")
+    return trigger
 
 def threadDetect():
     Thread(target = detectPress).start()
