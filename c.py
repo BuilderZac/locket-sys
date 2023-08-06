@@ -5,6 +5,7 @@ import os
 from waveshare_epd import epd2in13_V3
 from gpiozero import Button
 from time import sleep
+from threading import Thread
 
 #Screen common functions/recources
 pic = 'pic'
@@ -48,15 +49,19 @@ def getButton():
         return 4
     
 def detectPress():
-    if up.is_pressed:
-        return True
-    elif down.is_pressed:
-        return True
-    elif select.is_pressed:
-        return True
-    else:
-        return False
-    
+    try:
+        while True:
+            if up.is_pressed:
+                raise NotImplementedError
+            if down.is_pressed:
+                raise NotImplementedError
+            if select.is_pressed:
+                raise NotImplementedError
+    except NotImplementedError:
+        print("Should Open Apps")
+
+def threadDetect():
+    Thread(target = detectPress).start()
 
 #code to make it refresh
 refresh()

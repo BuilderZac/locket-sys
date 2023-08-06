@@ -30,9 +30,7 @@ def homePrint():
     date()
 
     while (True):
-        if c.detectPress() == True:
-            print("should raise")
-            raise NotImplementedError
+        c.threadDetect()
         
         draw.rectangle((8, 5, 108, 30), fill = 255)
         draw.text((8, 5), time.strftime('%H:%M:%S'), font = c.font24, fill = 0)
