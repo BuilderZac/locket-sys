@@ -30,6 +30,10 @@ def homePrint():
     date()
 
     while (True):
+        if c.getButton() == 3:
+            print("should raise")
+            raise NotImplementedError
+        
         draw.rectangle((8, 5, 108, 30), fill = 255)
         draw.text((8, 5), time.strftime('%H:%M:%S'), font = c.font24, fill = 0)
         epd.displayPartial(epd.getbuffer(image))
@@ -40,8 +44,4 @@ def homePrint():
             print("this triggers")
 
         print(c.getButton())
-        
-        if c.getButton() == 3:
-            print("should raise")
-            raise NotImplementedError
         
