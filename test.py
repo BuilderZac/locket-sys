@@ -1,12 +1,7 @@
-from buttons import getButton as get
-from time import sleep
-
-while True:
-    but = get()
-    if but == 1:
-        print("it works up")
-    if but == 2:
-        print("it works down")
-    if but == 3:
-        print("it works select")
-    sleep(0.05)
+import time
+day = time.localtime()[6]
+days = ["Mon", "Tue", "Wen", "Thu", "Fri", "Sat", "Sun"]
+for i in range(7):
+    if i == day:
+        days[i] = ">" + days[i] + "<"
+    print(days[i])
