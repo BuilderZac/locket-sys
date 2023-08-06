@@ -39,7 +39,7 @@ def homePrint():
             date()
             print("this triggers")
 
-        print(c.getButton)
+        print(c.getButton())
         
         if c.getButton() == 3:
             print("should raise")
