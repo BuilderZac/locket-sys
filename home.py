@@ -30,7 +30,7 @@ def homePrint():
     date()
 
     while (True):
-        if c.getButton() == 3:
+        if c.detectPress() == True:
             print("should raise")
             raise NotImplementedError
         
@@ -42,6 +42,4 @@ def homePrint():
             c.refresh()
             date()
             print("this triggers")
-
-        print(c.getButton())
         

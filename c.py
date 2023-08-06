@@ -46,6 +46,17 @@ def getButton():
         return 3
     else:
         return 4
+    
+def detectPress():
+    if up.is_pressed:
+        return True
+    elif down.is_pressed:
+        return True
+    elif select.is_pressed:
+        return True
+    else:
+        return False
+    
 
 #code to make it refresh
 refresh()
