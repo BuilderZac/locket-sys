@@ -29,8 +29,8 @@ def homePrint():
 
     date()
     try:
+        c.threadDetect()
         while (True):
-            c.threadDetect()
             
             draw.rectangle((8, 5, 108, 30), fill = 255)
             draw.text((8, 5), time.strftime('%H:%M:%S'), font = c.font24, fill = 0)
