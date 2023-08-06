@@ -4,10 +4,10 @@ import c
 while True:
     try:
         home.homePrint()
-
-    except NotImplementedError:
         c.refresh()
         appsList.appList()
+
+    except NotImplementedError:
         break
 
     except KeyboardInterrupt:
