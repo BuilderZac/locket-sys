@@ -23,17 +23,9 @@ def date():
         dayString = dayString + days[i]
     draw.text((10, 40), dayString, font = c.font16, fill = 0)
 
-def homePrint():
-    epd.displayPartBaseImage(epd.getbuffer(image))
-
+def clock():
     currentDay = time.localtime()[7]
-
-    date()
-    pool = ThreadPool(processes=1)
-    async_result = pool.apply_async(c.detectPress)
-    loop = True
-    while loop != False:
-        loop = async_result.get()
+    while True:
         draw.rectangle((8, 5, 108, 30), fill = 255)
         draw.text((8, 5), time.strftime('%H:%M:%S'), font = c.font24, fill = 0)
         epd.displayPartial(epd.getbuffer(image))
@@ -44,5 +36,15 @@ def homePrint():
             date()
             print("this triggers")
             currentDay = time.localtime()[7]
+
+def homePrint():
+    epd.displayPartBaseImage(epd.getbuffer(image))
+
+    date()
+    pool = ThreadPool(processes=1)
+    pool.apply_async(clock())
+    while True:
+        if c.getButton != 4:
+            break
     pool.terminate()
         
