@@ -1,0 +1,2 @@
+# locket-sys
+The goal of this project is to make a custom time peice using a raspberry pi and E-ink display. Its a work in progress as of the moment with only a working home page and no othere functions. The goal is to create some apps that take advantage of the system having a raspberry pi zero. Things I plan to add are a stopwatch, alarm, TOTP client, bluetooth beacon, aircrack suite, and wireshark packet grabber. Once the project has moved along an acceptable amount I will update this read me with a steps and parts list for othere people to make there own.
