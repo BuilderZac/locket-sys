@@ -9,6 +9,7 @@ epd.init()
 image = c.newImage()
 draw = ImageDraw.Draw(image)
 
+# Function to print the date
 def date():
     x = datetime.date.today()
     draw.text((111, 5), x.strftime('%b/%d/%Y'), font = c.font24, fill = 0)
@@ -23,6 +24,7 @@ def date():
         dayString = dayString + days[i]
     draw.text((10, 40), dayString, font = c.font16, fill = 0)
 
+# Updates the clock to show the time
 def clock():
     currentDay = time.localtime()[7]
     while True:
@@ -37,6 +39,7 @@ def clock():
             print("this triggers")
             currentDay = time.localtime()[7]
 
+# Function to print home for threading
 def homePrint():
     epd.displayPartBaseImage(epd.getbuffer(image))
 
@@ -47,4 +50,4 @@ def homePrint():
         if c.getButton != 4:
             break
     pool.terminate()
-        
+
