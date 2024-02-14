@@ -18,14 +18,17 @@ def drawList(index):
 
 def appList():
     index = 1
-    drawList(index)
-    c.detectPress()
-    button = c.getButton()
-    match button:
-        case 1:
-            index+1
-        case 2:
-            index-1
-        case 3:
-            print("selected")
+    button = 0
+    while True:
+        drawList(index)
+        c.detectPress()
+        button = c.getButton()
+        match button:
+            case 1:
+                index+1
+            case 2:
+                index-1
+            case 3:
+                print("selected")
+                break
     print("Triggered appList()")
