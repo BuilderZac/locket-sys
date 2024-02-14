@@ -24,7 +24,11 @@ def newImage():
     return image
 
 
-def refresh():
+def refresh(sleepTime):
+    if sleepTime != None:
+        pass
+    else: 
+        sleep(sleepTime)
     epd = epd2in13_V3.EPD()
     epd.init()
     epd.Clear(255)
