@@ -24,10 +24,8 @@ def newImage():
     return image
 
 
-def refresh(sleepTime):
+def refresh(sleepTime = None):
     if sleepTime != None:
-        pass
-    else: 
         sleep(sleepTime)
     epd = epd2in13_V3.EPD()
     epd.init()
