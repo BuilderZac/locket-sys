@@ -50,7 +50,7 @@ def homePrint():
     epd.displayPartBaseImage(epd.getbuffer(image))
 
     date()
-    clockThread = Thread(target=clock())
+    clockThread = Thread(target=clock, daemon=True)
     clockThread.start()
     print("is it working?")
     while True:
