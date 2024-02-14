@@ -50,6 +50,7 @@ def homePrint():
     pool = ThreadPool(processes=1)
     pool.apply_async(clock())
     while True:
+        print("the loop is running")
         time.sleep(0.005)
         if c.getButton != 4:
             print("the loop should die")
