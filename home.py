@@ -10,6 +10,10 @@ image = c.newImage()
 draw = ImageDraw.Draw(image)
 
 
+class killClock(Exception):
+    pass
+
+
 # Function to print the date
 def date():
     x = datetime.date.today()
@@ -41,7 +45,7 @@ async def clock():
                 date()
                 print("this triggers")  # for debuging remove later
                 currentDay = time.localtime()[7]
-    except "killClock":
+    except killClock:
         pass
 
 
@@ -56,5 +60,5 @@ def homePrint():
         time.sleep(0.005)
         if c.getButton != 4:
             print("the loop should die")
-            raise "killClock"
+            raise killClock
             break
