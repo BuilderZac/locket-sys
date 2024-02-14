@@ -4,7 +4,7 @@ import c
 while True:
     try:
         home.homePrint()
-        c.refresh(0.5)
+        c.clear
         appsList.appList()
 
     except NotImplementedError:

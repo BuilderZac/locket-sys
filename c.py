@@ -32,6 +32,10 @@ def refresh(sleepTime = None):
     epd.Clear(255)
 
 
+def clear():
+    epd.Clear(255)
+
+
 # Button common functions/recources
 up = Button(16)
 down = Button(20)
