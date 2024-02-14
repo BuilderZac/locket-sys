@@ -2,7 +2,7 @@ import time
 import datetime
 from PIL import Image, ImageDraw, ImageFont
 import c
-from multiprocessing.pool import ThreadPool
+import asyncio
 
 epd = c.epd()
 epd.init()
@@ -27,19 +27,22 @@ def date():
 
 
 # Updates the clock to show the time
-def clock():
-    currentDay = time.localtime()[7]
-    while True:
-        draw.rectangle((8, 5, 108, 30), fill = 255)
-        draw.text((8, 5), time.strftime('%H:%M:%S'), font = c.font24, fill = 0)
-        epd.displayPartial(epd.getbuffer(image))
+async def clock():
+    try:
+        currentDay = time.localtime()[7]
+        while True:
+            draw.rectangle((8, 5, 108, 30), fill = 255)
+            draw.text((8, 5), time.strftime('%H:%M:%S'), font = c.font24, fill = 0)
+            epd.displayPartial(epd.getbuffer(image))
 
-        if currentDay != time.localtime()[7]:
-            c.refresh()
-            time.sleep(1)
-            date()
-            print("this triggers")  # for debuging remove later
-            currentDay = time.localtime()[7]
+            if currentDay != time.localtime()[7]:
+                c.refresh()
+                time.sleep(1)
+                date()
+                print("this triggers")  # for debuging remove later
+                currentDay = time.localtime()[7]
+    except "killClock":
+        pass
 
 
 # Function to print home for threading
@@ -47,12 +50,11 @@ def homePrint():
     epd.displayPartBaseImage(epd.getbuffer(image))
 
     date()
-    pool = ThreadPool(processes=1)
-    pool.apply_async(clock())
+    asyncio.run(clock)
     while True:
         print("the loop is running")
         time.sleep(0.005)
         if c.getButton != 4:
             print("the loop should die")
+            raise "killClock"
             break
-    pool.terminate()
