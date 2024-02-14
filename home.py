@@ -13,7 +13,7 @@ draw = ImageDraw.Draw(image)
 # Function to print the date
 def date():
     x = datetime.date.today()
-    draw.text((111, 5), x.strftime('%b/%d/%Y'), font = c.font24, fill = 0)
+    draw.text((111, 5), x.strftime('%m/%d/%Y'), font = c.font24, fill = 0)
     day = time.localtime()[6]
     days = ["Mon", "Tue", "Wen", "Thu", "Fri", "Sat", "Sun"]
     dayString = ""
@@ -51,7 +51,7 @@ def homePrint():
     clockThread = Thread(target=clock, daemon=True)
     clockThread.start()
     while True:
-        if c.detectPress():
+        if c.getButton != 4:
             print("Thread should join")
             clockThread.join(0)
             break
