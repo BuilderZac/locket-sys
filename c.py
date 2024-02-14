@@ -53,7 +53,7 @@ def getButton():
         return 3
     else:
         return 4
- 
+
 
 def detectPress():
     trigger = True

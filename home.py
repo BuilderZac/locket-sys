@@ -54,11 +54,11 @@ def homePrint():
     epd.displayPartBaseImage(epd.getbuffer(image))
 
     date()
-    asyncio.run(clock)
+    asyncio.run(clock())
     while True:
         print("the loop is running")
         time.sleep(0.005)
-        if c.getButton != 4:
+        if c.detectPress():
             print("the loop should die")
             raise killClock
             break
