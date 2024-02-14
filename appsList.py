@@ -8,13 +8,14 @@ image = c.newImage()
 draw = ImageDraw.Draw(image)
 
 
-appList = ["", "Home", "Pull Github", "Shutdown", ""]
+appListArray = ["", "Home", "Pull Github", "Shutdown", ""]
 
 
 def drawList(index):
-    draw.text((80, 5), (appList[index - 1]), font = c.font24, fill = 0)
-    draw.text((100, 5), (appList[index]), font = c.font24, fill = 0)
-    draw.text((120, 5), (appList[index + 1]), font = c.font24, fill = 0)
+    draw.text((80, 5), (appListArray[index - 1]), font=c.font24, fill=0)
+    draw.text((100, 5), (appListArray[index]), font=c.font24, fill=0)
+    draw.text((120, 5), (appListArray[index + 1]), font=c.font24, fill=0)
+
 
 def appList():
     index = 1
