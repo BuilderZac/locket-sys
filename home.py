@@ -50,8 +50,6 @@ def homePrint():
     date()
     clockThread = Thread(target=clock, daemon=True)
     clockThread.start()
-    while True:
-        if c.getButton != 4:
-            print("Thread should join")
-            clockThread.join(0)
-            break
+    c.detectPress()
+    print("Thread should join")
+    clockThread.join(0)
