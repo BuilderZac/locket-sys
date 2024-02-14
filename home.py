@@ -27,9 +27,9 @@ def date():
 
 
 # Updates the clock to show the time
+termSignal = True
 def clock():
     global termSignal
-    termSignal = True
     currentDay = time.localtime()[7]
     while termSignal:
         draw.rectangle((8, 5, 108, 30), fill = 255)
@@ -52,7 +52,6 @@ def homePrint():
     date()
     clockThread = Thread(target=clock, daemon=True)
     clockThread.start()
-    print("is it working?")
     while True:
         time.sleep(0.005)
         if c.detectPress():
