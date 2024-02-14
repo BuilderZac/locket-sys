@@ -53,7 +53,7 @@ def homePrint():
     clockThread = Thread(target=clock, daemon=True)
     clockThread.start()
     while True:
-        time.sleep(0.005)
         if c.detectPress():
+            print("Thread should join")
             clockThread.join(0)
             break

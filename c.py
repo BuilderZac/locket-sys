@@ -65,7 +65,6 @@ def detectPress():
         if select.is_pressed:
             trigger = False
 
-    print("should work")
     return trigger
 
 
