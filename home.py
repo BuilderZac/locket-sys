@@ -55,6 +55,7 @@ def homePrint():
 
     date()
     clockThread = threading.Thread(target=clock())
+    clockThread.daemon = True
     clockThread.run()
     while True:
         print("the loop is running")
