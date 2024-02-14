@@ -1,6 +1,6 @@
 import time
 import datetime
-from PIL import Image,ImageDraw,ImageFont
+from PIL import Image, ImageDraw, ImageFont
 import c
 from multiprocessing.pool import ThreadPool
 
@@ -8,6 +8,7 @@ epd = c.epd()
 epd.init()
 image = c.newImage()
 draw = ImageDraw.Draw(image)
+
 
 # Function to print the date
 def date():
@@ -24,6 +25,7 @@ def date():
         dayString = dayString + days[i]
     draw.text((10, 40), dayString, font = c.font16, fill = 0)
 
+
 # Updates the clock to show the time
 def clock():
     currentDay = time.localtime()[7]
@@ -36,8 +38,9 @@ def clock():
             c.refresh()
             time.sleep(1)
             date()
-            print("this triggers")
+            print("this triggers")  # for debuging remove later
             currentDay = time.localtime()[7]
+
 
 # Function to print home for threading
 def homePrint():
@@ -47,7 +50,7 @@ def homePrint():
     pool = ThreadPool(processes=1)
     pool.apply_async(clock())
     while True:
+        time.sleep(0.005)
         if c.getButton != 4:
             break
     pool.terminate()
-
