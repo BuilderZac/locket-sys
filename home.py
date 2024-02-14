@@ -55,5 +55,5 @@ def homePrint():
     while True:
         time.sleep(0.005)
         if c.detectPress():
-            termSignal = False
+            clockThread.join(0)
             break
