@@ -15,6 +15,6 @@ while True:
         print("closing")
         break
 
-    except:
-        print("Error")
+#    except:
+#        print("Error")
 
