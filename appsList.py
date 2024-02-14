@@ -20,7 +20,8 @@ def appList():
     index = 1
     drawList(index)
     c.detectPress()
-    match c.getButton():
+    button = c.getButton()
+    match button:
         case 1:
             index+1
         case 2:
