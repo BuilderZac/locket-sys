@@ -2,7 +2,7 @@ import time
 import datetime
 from PIL import Image, ImageDraw, ImageFont
 import c
-from threading import Thread
+from threading import Thread, Event
 
 epd = c.epd()
 epd.init()
@@ -27,9 +27,10 @@ def date():
 
 
 # Updates the clock to show the time
+clockOn = Event()
 def clock():
     currentDay = time.localtime()[7]
-    while True:
+    while not clockOn.is_set():
         draw.rectangle((8, 5, 108, 30), fill = 255)
         draw.text((8, 5), time.strftime('%H:%M:%S'), font = c.font24, fill = 0)
         epd.displayPartial(epd.getbuffer(image))
@@ -52,5 +53,5 @@ def homePrint():
     clockThread.start()
     c.detectPress()
     print("Thread should join")
-    clockThread.join(0)
-    clockThread._stop()
+    clockOn.set()
+    clockThread.join(1)
