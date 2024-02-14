@@ -2,7 +2,7 @@ import time
 import datetime
 from PIL import Image, ImageDraw, ImageFont
 import c
-import asyncio
+import threading
 
 epd = c.epd()
 epd.init()
@@ -31,7 +31,7 @@ def date():
 
 
 # Updates the clock to show the time
-async def clock():
+def clock():
     try:
         currentDay = time.localtime()[7]
         while True:
@@ -54,11 +54,12 @@ def homePrint():
     epd.displayPartBaseImage(epd.getbuffer(image))
 
     date()
-    asyncio.run(clock())
+    clockThread = threading.Thread(target=clock())
+    clockThread.run()
     while True:
         print("the loop is running")
         time.sleep(0.005)
         if c.detectPress():
-            print("the loop should die")
             raise killClock
+            clockThread.join()
             break
