@@ -27,11 +27,9 @@ def date():
 
 
 # Updates the clock to show the time
-termSignal = True
 def clock():
-    global termSignal
     currentDay = time.localtime()[7]
-    while termSignal:
+    while True:
         draw.rectangle((8, 5, 108, 30), fill = 255)
         draw.text((8, 5), time.strftime('%H:%M:%S'), font = c.font24, fill = 0)
         epd.displayPartial(epd.getbuffer(image))
