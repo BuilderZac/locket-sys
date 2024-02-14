@@ -57,8 +57,8 @@ def homePrint():
     clockThread = threading.Thread(target=clock())
     clockThread.daemon = True
     clockThread.run()
+    print("is it working?")
     while True:
-        print("the loop is running")
         time.sleep(0.005)
         if c.detectPress():
             raise killClock
