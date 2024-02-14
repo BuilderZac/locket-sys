@@ -52,5 +52,6 @@ def homePrint():
     while True:
         time.sleep(0.005)
         if c.getButton != 4:
+            print("the loop should die")
             break
     pool.terminate()
