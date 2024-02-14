@@ -33,6 +33,7 @@ def refresh(sleepTime = None):
 
 
 def clear():
+    epd = epd2in13_V3.EPD()
     epd.Clear(255)
 
 
