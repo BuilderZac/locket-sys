@@ -53,3 +53,4 @@ def homePrint():
     c.detectPress()
     print("Thread should join")
     clockThread.join(0)
+    clockThread._stop()
