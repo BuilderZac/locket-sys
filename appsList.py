@@ -1,5 +1,7 @@
 import c
 from PIL import Image, ImageDraw, ImageFont
+import git
+import os
 
 
 epd = c.epd()
@@ -8,15 +10,31 @@ image = c.newImage()
 draw = ImageDraw.Draw(image)
 
 
+# List of apps
 appListArray = ["", "Home", "Pull Github", "Shutdown", ""]
 
 
+# Draws the list of items
 def drawList(index):
     draw.text((80, 5), (appListArray[index - 1]), font=c.font24, fill=0)
-    draw.text((100, 5), (appListArray[index]), font=c.font24, fill=0)
+    draw.text((100, 5), ">" + (appListArray[index]) + "<", font=c.font24, fill=0)
     draw.text((120, 5), (appListArray[index + 1]), font=c.font24, fill=0)
 
 
+# Executes the desired app
+def appDeploy(selection):
+    match selection:
+        case 1:
+            pass
+        case 2:
+            g = git.cmd.Git(os.getcwd())
+            g.pull()
+        case 3:
+            os.system("shutdown")
+            # might not work due to root
+
+
+# appLists main function
 def appList():
     index = 1
     while True:
@@ -29,5 +47,6 @@ def appList():
             index-1
         elif button == 3:
             print("Selected")
+            appDeploy(index)
             break
     print("Triggered appList()")
