@@ -2,16 +2,12 @@ import time
 import datetime
 from PIL import Image, ImageDraw, ImageFont
 import c
-import threading
+from threading import Thread
 
 epd = c.epd()
 epd.init()
 image = c.newImage()
 draw = ImageDraw.Draw(image)
-
-
-class killClock(Exception):
-    pass
 
 
 # Function to print the date
@@ -32,34 +28,33 @@ def date():
 
 # Updates the clock to show the time
 def clock():
-    try:
-        currentDay = time.localtime()[7]
-        while True:
-            draw.rectangle((8, 5, 108, 30), fill = 255)
-            draw.text((8, 5), time.strftime('%H:%M:%S'), font = c.font24, fill = 0)
-            epd.displayPartial(epd.getbuffer(image))
+    global termSignal
+    termSignal = True
+    currentDay = time.localtime()[7]
+    while termSignal:
+        draw.rectangle((8, 5, 108, 30), fill = 255)
+        draw.text((8, 5), time.strftime('%H:%M:%S'), font = c.font24, fill = 0)
+        epd.displayPartial(epd.getbuffer(image))
 
-            if currentDay != time.localtime()[7]:
-                c.refresh()
-                time.sleep(1)
-                date()
-                print("this triggers")  # for debuging remove later
-                currentDay = time.localtime()[7]
-    except killClock:
-        pass
+        if currentDay != time.localtime()[7]:
+            c.refresh()
+            time.sleep(1)
+            date()
+            print("this triggers")  # for debuging remove later
+            currentDay = time.localtime()[7]
 
 
 # Function to print home for threading
 def homePrint():
+    global termSignal
     epd.displayPartBaseImage(epd.getbuffer(image))
 
     date()
-    clockThread = threading.Thread(target=clock(), daemon=True, name=clockThread)
+    clockThread = Thread(target=clock(), daemon=True)
     clockThread.start()
     print("is it working?")
     while True:
         time.sleep(0.005)
         if c.detectPress():
-            raise killClock
-            clockThread.join()
+            termSignal = False
             break
