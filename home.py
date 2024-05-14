@@ -28,6 +28,8 @@ def date():
 
 # Updates the clock to show the time
 clockOn = Event()
+
+
 def clock():
     currentDay = time.localtime()[7]
     while not clockOn.is_set():
