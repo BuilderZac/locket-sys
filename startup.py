@@ -3,6 +3,7 @@ import appsList
 import c
 while True:
     try:
+        c.refresh()
         home.homePrint()
         appsList.appList()
 
@@ -10,10 +11,8 @@ while True:
         break
 
     except KeyboardInterrupt:
-        c.refresh()
         print("closing")
         break
 
 #    except:
 #        print("Error")
-
