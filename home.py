@@ -5,7 +5,6 @@ import c
 from threading import Thread, Event
 
 epd = c.epd()
-epd.init()
 image = c.newImage()
 draw = ImageDraw.Draw(image)
 

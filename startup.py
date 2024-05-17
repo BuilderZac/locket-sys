@@ -3,7 +3,6 @@ import appsList
 import c
 while True:
     try:
-        c.refresh()
         home.homePrint()
         appsList.appList()
 
