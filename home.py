@@ -56,3 +56,4 @@ def homePrint():
     print("Thread should join")
     clockOn.set()
     clockThread.join(1)
+    c.clear()

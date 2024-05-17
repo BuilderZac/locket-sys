@@ -1,6 +1,7 @@
 import home
 import appsList
 import c
+epd = c.epd()
 while True:
     try:
         home.homePrint()
@@ -10,6 +11,7 @@ while True:
         break
 
     except KeyboardInterrupt:
+        epd.sleep()
         print("closing")
         break
 

@@ -37,6 +37,7 @@ def appDeploy(selection):
 def appList():
     index = 1
     while True:
+        epd.
         drawList(index)
         c.detectPress()
         button = c.getButton()
