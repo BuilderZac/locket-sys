@@ -23,15 +23,14 @@ def drawList(index):
 
 # Executes the desired app
 def appDeploy(selection):
-    match selection:
-        case 1:
-            pass
-        case 2:
-            g = git.cmd.Git(os.getcwd())
-            g.pull()
-        case 3:
-            os.system("shutdown")
-            # might not work due to root
+    if selection == 1:
+        pass
+    elif selection == 2:
+        g = git.cmd.Git(os.getcwd())
+        g.pull()
+    elif selection == 3:
+        os.system("shutdown")
+        # might not work due to root
 
 
 # appLists main function
